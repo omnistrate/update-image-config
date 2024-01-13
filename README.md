@@ -1,4 +1,4 @@
-# Github Action to integrate your CI with Omnistrate
+# GitHub Action to integrate your CI with Omnistrate
 
 [![GitHub Super-Linter](https://github.com/omnistrate/update-image-config/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
 ![CI](https://github.com/omnistrate/update-image-config/actions/workflows/ci.yml/badge.svg)
@@ -8,7 +8,7 @@
 
 ## Introduction
 
-This action allows you to leverage your existing Github action workflows
+This action allows you to leverage your existing GitHub action workflows
 to update your container image tags on the Omnistrate SaaS builder platform. Once the action completes,
 you can schedule your image updates on your fleet by following the [docs](https://docs.omnistrate.com/guides/patching/).
 
@@ -105,24 +105,24 @@ jobs:
 ```
 
 ## Inputs
-| Name | Description                                                  | Required | Default |
-| --- |--------------------------------------------------------------| --- | --- |
-| `service-id` | The service ID to update                                     | `true` | |
-| `image-config-id` | The image config ID to update                                | `true` | |
-| `service-api-id` | The service API ID to update                                 | `true` | |
-| `product-tier-id` | The product tier ID to update                                | `true` | |
-| `tag` | The new tag to update the image config with                  | `true` | |
-| `release-description` | The release description to use for the new service version   | `false` | |
-| `username` | The username to authenticate against the Omnistrate platform | `false` | |
-| `password` | The password to authenticate against the Omnistrate platform | `false` | |
+| Name                  | Description                                                  | Required | Default |
+|-----------------------|--------------------------------------------------------------|----------|---------|
+| `service-id`          | The service ID to update                                     | `true`   |         |
+| `image-config-id`     | The image config ID to update                                | `true`   |         |
+| `service-api-id`      | The service API ID to update                                 | `true`   |         |
+| `product-tier-id`     | The product tier ID to update                                | `true`   |         |
+| `tag`                 | The new tag to update the image config with                  | `true`   |         |
+| `release-description` | The release description to use for the new service version   | `false`  |         |
+| `username`            | The username to authenticate against the Omnistrate platform | `false`  |         |
+| `password`            | The password to authenticate against the Omnistrate platform | `false`  |         |
 
 ## Outputs
-| Name | Description |
-| --- | --- |
-| `service-id` | The service ID that was updated |
-| `image-config-id` | The image config ID that was updated |
-| `service-api-id` | The service API ID that was updated |
-| `product-tier-id` | The product tier ID that was updated |
-| `tag` | The tag that was updated |
+| Name                  | Description                              |
+|-----------------------|------------------------------------------|
+| `service-id`          | The service ID that was updated          |
+| `image-config-id`     | The image config ID that was updated     |
+| `service-api-id`      | The service API ID that was updated      |
+| `product-tier-id`     | The product tier ID that was updated     |
+| `tag`                 | The tag that was updated                 |
 | `release-description` | The release description that was updated |
 
