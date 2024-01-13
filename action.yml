@@ -1,5 +1,5 @@
 name: 'Omnistrate Image Tag Update Action'
-description: 'This action integrates with the Omnistrate CD API and prepares it for deployment across your fleet'
+description: 'This action integrates with the Omnistrate CD API'
 author: 'Omnistrate'
 branding:
   icon: 'activity'
