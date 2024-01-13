@@ -92,7 +92,7 @@ describe('action', () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer jwtToken`
+          Authorization: 'Bearer jwtToken'
         },
         body: JSON.stringify({ imageTag: 'tag' })
       }
@@ -104,7 +104,7 @@ describe('action', () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer jwtToken`
+          Authorization: 'Bearer jwtToken'
         },
         body: JSON.stringify({
           isPreferred: false,

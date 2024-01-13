@@ -9,8 +9,9 @@
 ## Introduction
 
 This action allows you to leverage your existing GitHub action workflows
-to update your container image tags on the Omnistrate SaaS builder platform. Once the action completes,
-you can schedule your image updates on your fleet by following the [docs](https://docs.omnistrate.com/guides/patching/).
+to update your container image tags on the Omnistrate SaaS builder platform. 
+Once the action completes, you can schedule your image updates on your fleet 
+by following the [docs](https://docs.omnistrate.com/guides/patching/).
 
 ## Usage
 
@@ -22,7 +23,7 @@ you can schedule your image updates on your fleet by following the [docs](https:
      image-config-id: ${{ inputs.image-config-id }} # REQUIRED
      service-api-id: ${{ inputs.service-api-id }} # REQUIRED
      product-tier-id: ${{ inputs.product-tier-id }} # REQUIRED
-     tag: ${{ inputs.tag }} # REQUIRED: Output from your step that generates the new tag
+     tag:  # REQUIRED: Output from your step containing the new tag
      release-description: ${{ inputs.release-description }} # OPTIONAL
 ```
 
@@ -94,17 +95,18 @@ jobs:
       - name: Update Docker Image Tag on Omnistrate
         uses: omnistrate/update-image-config@v1
         with:
-          service-id: ${{ inputs.service-id }} # REQUIRED
-          image-config-id: ${{ inputs.image-config-id }} # REQUIRED
-          service-api-id: ${{ inputs.service-api-id }} # REQUIRED
-          product-tier-id: ${{ inputs.product-tier-id }} # REQUIRED
-          tag: ${{ steps.meta.outputs.version }} # REQUIRED: Output from your step that generates the new tag
-          release-description: ${{ inputs.release-description }} # OPTIONAL
+          service-id: ${{ inputs.service-id }}
+          image-config-id: ${{ inputs.image-config-id }}
+          service-api-id: ${{ inputs.service-api-id }}
+          product-tier-id: ${{ inputs.product-tier-id }}
+          tag: ${{ steps.meta.outputs.version }}
+          release-description: ${{ inputs.release-description }}
           username: ${{ secrets.OMNISTRATE_USERNAME }}
           password: ${{ secrets.OMNISTRATE_PASSWORD }}
 ```
 
 ## Inputs
+
 | Name                  | Description                                                  | Required | Default |
 |-----------------------|--------------------------------------------------------------|----------|---------|
 | `service-id`          | The service ID to update                                     | `true`   |         |
@@ -117,6 +119,7 @@ jobs:
 | `password`            | The password to authenticate against the Omnistrate platform | `false`  |         |
 
 ## Outputs
+
 | Name                  | Description                              |
 |-----------------------|------------------------------------------|
 | `service-id`          | The service ID that was updated          |
