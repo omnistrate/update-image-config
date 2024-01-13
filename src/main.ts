@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as crypto from 'crypto'
 
-function sha256 (inputString: string): string {
+function sha256(inputString: string): string {
   const hash = crypto.createHash('sha256')
   hash.update(inputString)
   return hash.digest('hex')
@@ -11,7 +11,7 @@ function sha256 (inputString: string): string {
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
-export async function run (): Promise<void> {
+export async function run(): Promise<void> {
   try {
     // Read inputs
     const username = core.getInput('username', { required: true })

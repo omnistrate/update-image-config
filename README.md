@@ -9,8 +9,8 @@
 ## Introduction
 
 This action allows you to leverage your existing GitHub action workflows
-to update your container image tags on the Omnistrate SaaS builder platform. 
-Once the action completes, you can schedule your image updates on your fleet 
+to update your container image tags on the Omnistrate SaaS builder platform.
+Once the action completes, you can schedule your image updates on your fleet
 by following the [docs](https://docs.omnistrate.com/guides/patching/).
 
 ## Usage
