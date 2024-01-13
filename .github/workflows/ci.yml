@@ -55,8 +55,14 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 2000
+          username: ${{ secrets.OMNISTRATE_USERNAME }}
+          password: ${{ secrets.OMNISTRATE_PASSWORD }}
+          service-id: ${{ secrets.SERVICE_ID }}
+          service-api-id: ${{ secrets.SERVICE_API_ID }}
+          product-tier-id: ${{ secrets.PRODUCT_TIER_ID }}
+          image-config-id: ${{ secrets.IMAGE_CONFIG_ID }}
+          tag: tag-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.time }}"
+        run: echo "Released with tag ${{ steps.test-action.outputs.tag }}"
