@@ -1,23 +1,49 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+name: 'Omnistrate Image Tag Update Action'
+description: 'This action integrates with the Omnistrate CD API and prepares it for deployment across your fleet'
+author: 'Omnistrate'
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'activity'
+  color: 'blue'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  service-id:
+    description: 'Service ID'
+    required: false
+  service-api-id:
+    description: 'Service API ID'
+    required: false
+  product-tier-id:
+    description: 'Product Tier ID'
+    required: false
+  image-config-id:
+    description: 'Image Config ID'
+    required: false
+  tag:
+    description: 'Tag'
     required: true
-    default: '1000'
+  release-description:
+    description: 'Release Description'
+    required: false
+  username:
+    description: 'Username'
+    required: true
+  password:
+    description: 'Password'
+    required: true
 
-# Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  service-id:
+    description: 'The service ID that was updated'
+  image-config-id:
+    description: 'The image config ID that was updated'
+  service-api-id:
+    description: 'The service API ID that was updated'
+  product-tier-id:
+    description: 'The product tier ID that was updated'
+  tag:
+    description: 'The tag that was updated'
+  release-description:
+    description: 'The release description that was updated'
 
 runs:
   using: node20
