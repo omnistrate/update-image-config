@@ -89,7 +89,7 @@ describe('action', () => {
       2,
       'https://api.omnistrate.cloud/2022-09-01-00/service/service-id/image-config/image-config-id',
       {
-        method: 'POST',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           Authorization: 'Bearer jwtToken'

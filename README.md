@@ -15,10 +15,14 @@ by following the [docs](https://docs.omnistrate.com/guides/patching/).
 
 ## Usage
 
+- **Create secrets in your repository for your Omnistrate user and password**
+
 ```yaml
 - name: Update Docker Image Tag on Omnistrate
   uses: omnistrate/update-image-config@v1
   with:
+     username: ${{ secrets.OMNISTRATE_USERNAME }} # REQUIRED
+     password: ${{ secrets.OMNISTRATE_PASSWORD }} # REQUIRED
      service-id: ${{ inputs.service-id }} # REQUIRED
      image-config-id: ${{ inputs.image-config-id }} # REQUIRED
      service-api-id: ${{ inputs.service-api-id }} # REQUIRED
@@ -95,28 +99,28 @@ jobs:
       - name: Update Docker Image Tag on Omnistrate
         uses: omnistrate/update-image-config@v1
         with:
+          username: ${{ secrets.OMNISTRATE_USERNAME }}
+          password: ${{ secrets.OMNISTRATE_PASSWORD }}
           service-id: ${{ inputs.service-id }}
           image-config-id: ${{ inputs.image-config-id }}
           service-api-id: ${{ inputs.service-api-id }}
           product-tier-id: ${{ inputs.product-tier-id }}
           tag: ${{ steps.meta.outputs.version }}
           release-description: ${{ inputs.release-description }}
-          username: ${{ secrets.OMNISTRATE_USERNAME }}
-          password: ${{ secrets.OMNISTRATE_PASSWORD }}
 ```
 
 ## Inputs
 
 | Name                  | Description                                                  | Required | Default |
 |-----------------------|--------------------------------------------------------------|----------|---------|
+| `username`            | The username to authenticate against the Omnistrate platform | `true`   |         |
+| `password`            | The password to authenticate against the Omnistrate platform | `true`   |         |
 | `service-id`          | The service ID to update                                     | `true`   |         |
 | `image-config-id`     | The image config ID to update                                | `true`   |         |
 | `service-api-id`      | The service API ID to update                                 | `true`   |         |
 | `product-tier-id`     | The product tier ID to update                                | `true`   |         |
 | `tag`                 | The new tag to update the image config with                  | `true`   |         |
 | `release-description` | The release description to use for the new service version   | `false`  |         |
-| `username`            | The username to authenticate against the Omnistrate platform | `false`  |         |
-| `password`            | The password to authenticate against the Omnistrate platform | `false`  |         |
 
 ## Outputs
 
