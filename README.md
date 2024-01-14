@@ -113,14 +113,14 @@ jobs:
 
 | Name                  | Description                                                  | Required | Default |
 |-----------------------|--------------------------------------------------------------|----------|---------|
+| `username`            | The username to authenticate against the Omnistrate platform | `true`   |         |
+| `password`            | The password to authenticate against the Omnistrate platform | `true`   |         |
 | `service-id`          | The service ID to update                                     | `true`   |         |
 | `image-config-id`     | The image config ID to update                                | `true`   |         |
 | `service-api-id`      | The service API ID to update                                 | `true`   |         |
 | `product-tier-id`     | The product tier ID to update                                | `true`   |         |
 | `tag`                 | The new tag to update the image config with                  | `true`   |         |
 | `release-description` | The release description to use for the new service version   | `false`  |         |
-| `username`            | The username to authenticate against the Omnistrate platform | `false`  |         |
-| `password`            | The password to authenticate against the Omnistrate platform | `false`  |         |
 
 ## Outputs
 
