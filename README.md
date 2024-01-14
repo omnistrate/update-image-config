@@ -15,10 +15,14 @@ by following the [docs](https://docs.omnistrate.com/guides/patching/).
 
 ## Usage
 
+- **Create secrets in your repository for your Omnistrate user and password**
+
 ```yaml
 - name: Update Docker Image Tag on Omnistrate
   uses: omnistrate/update-image-config@v1
   with:
+     username: ${{ secrets.OMNISTRATE_USERNAME }} # REQUIRED
+     password: ${{ secrets.OMNISTRATE_PASSWORD }} # REQUIRED
      service-id: ${{ inputs.service-id }} # REQUIRED
      image-config-id: ${{ inputs.image-config-id }} # REQUIRED
      service-api-id: ${{ inputs.service-api-id }} # REQUIRED
@@ -95,14 +99,14 @@ jobs:
       - name: Update Docker Image Tag on Omnistrate
         uses: omnistrate/update-image-config@v1
         with:
+          username: ${{ secrets.OMNISTRATE_USERNAME }}
+          password: ${{ secrets.OMNISTRATE_PASSWORD }}
           service-id: ${{ inputs.service-id }}
           image-config-id: ${{ inputs.image-config-id }}
           service-api-id: ${{ inputs.service-api-id }}
           product-tier-id: ${{ inputs.product-tier-id }}
           tag: ${{ steps.meta.outputs.version }}
           release-description: ${{ inputs.release-description }}
-          username: ${{ secrets.OMNISTRATE_USERNAME }}
-          password: ${{ secrets.OMNISTRATE_PASSWORD }}
 ```
 
 ## Inputs
