@@ -128,4 +128,3 @@ jobs:
 | `product-tier-id`     | The product tier ID that was updated     |
 | `tag`                 | The tag that was updated                 |
 | `release-description` | The release description that was updated |
-
