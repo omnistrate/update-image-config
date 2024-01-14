@@ -2786,8 +2786,8 @@ async function run() {
             })
         });
         const signInData = await signInResponse.json();
-        const jwtToken = signInData.jwtToken;
-        if (!jwtToken) {
+        const jwtToken = String(signInData.jwtToken);
+        if (jwtToken === '') {
             throw new Error('Failed to get jwtToken from the sign-in response');
         }
         // Second API call: Update Image Config
@@ -2823,7 +2823,7 @@ async function run() {
         console.log('Action completed successfully');
     }
     catch (error) {
-        core.setFailed(`Action failed with error: ${error}`);
+        core.setFailed(`Action failed with error: ${error.message}`);
     }
 }
 exports.run = run;
