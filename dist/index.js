@@ -2773,7 +2773,10 @@ async function run() {
         const productTierId = core.getInput('product-tier-id');
         const imageConfigId = core.getInput('image-config-id');
         const tag = core.getInput('tag', { required: true });
-        const releaseDescription = core.getInput('release-description');
+        let releaseDescription = core.getInput('release-description');
+        if (releaseDescription === '') {
+            releaseDescription = `releasing new image tag - ${tag}`;
+        }
         // Hash the password
         const hashedPassword = sha256(password);
         // First API call: Sign In
@@ -2792,7 +2795,7 @@ async function run() {
         }
         // Second API call: Update Image Config
         await fetch(`https://api.omnistrate.cloud/2022-09-01-00/service/${serviceId}/image-config/${imageConfigId}`, {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwtToken}`
