@@ -15,7 +15,7 @@ by following the [docs](https://docs.omnistrate.com/guides/patching/).
 
 ## Usage
 
-- **Create two secrets in your repository containing your Omnistrate username and password**
+- **Create secrets in your repository for your Omnistrate user and password**
 
 ```yaml
 - name: Update Docker Image Tag on Omnistrate
