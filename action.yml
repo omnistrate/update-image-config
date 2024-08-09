@@ -3,7 +3,7 @@ description: 'This action integrates with the Omnistrate CD API'
 author: 'Omnistrate'
 branding:
   icon: 'activity'
-  color: 'blue'
+  color: 'green'
 
 inputs:
   service-id:
