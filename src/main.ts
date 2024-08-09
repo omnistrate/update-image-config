@@ -9,6 +9,7 @@ export async function run(): Promise<void> {
     // Read inputs
     const username = core.getInput('username', { required: true })
     const pwd = core.getInput('password', { required: true })
+    core.setSecret(pwd)
     const serviceId = core.getInput('service-id')
     const serviceApiId = core.getInput('service-api-id')
     const productTierId = core.getInput('product-tier-id')
