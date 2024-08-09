@@ -2751,14 +2751,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = void 0;
+exports.run = run;
 const core = __importStar(__nccwpck_require__(186));
-const crypto = __importStar(__nccwpck_require__(113));
-function sha256(inputString) {
-    const hash = crypto.createHash('sha256');
-    hash.update(inputString);
-    return hash.digest('hex');
-}
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
@@ -2767,7 +2761,7 @@ async function run() {
     try {
         // Read inputs
         const username = core.getInput('username', { required: true });
-        const password = core.getInput('password', { required: true });
+        const pwd = core.getInput('password', { required: true });
         const serviceId = core.getInput('service-id');
         const serviceApiId = core.getInput('service-api-id');
         const productTierId = core.getInput('product-tier-id');
@@ -2777,15 +2771,13 @@ async function run() {
         if (releaseDescription === '') {
             releaseDescription = `releasing new image tag - ${tag}`;
         }
-        // Hash the password
-        const hashedPassword = sha256(password);
         // First API call: Sign In
         const signInResponse = await fetch('https://api.omnistrate.cloud/2022-09-01-00/signin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: username,
-                hashedPassword
+                password: pwd
             })
         });
         const signInData = await signInResponse.json();
@@ -2829,7 +2821,6 @@ async function run() {
         core.setFailed(`Action failed with error: ${error.message}`);
     }
 }
-exports.run = run;
 
 
 /***/ }),
