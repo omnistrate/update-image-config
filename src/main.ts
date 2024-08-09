@@ -1,11 +1,4 @@
 import * as core from '@actions/core'
-import * as crypto from 'crypto'
-
-function sha256(inputString: string): string {
-  const hash = crypto.createHash('sha256')
-  hash.update(inputString)
-  return hash.digest('hex')
-}
 
 /**
  * The main function for the action.
@@ -27,9 +20,6 @@ export async function run(): Promise<void> {
       releaseDescription = `releasing new image tag - ${tag}`
     }
 
-    // Hash the password
-    const hashedPassword = sha256(password)
-
     // First API call: Sign In
     const signInResponse = await fetch(
       'https://api.omnistrate.cloud/2022-09-01-00/signin',
@@ -38,7 +28,7 @@ export async function run(): Promise<void> {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: username,
-          hashedPassword
+          password: password,
         })
       }
     )
