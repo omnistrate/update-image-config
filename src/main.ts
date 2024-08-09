@@ -8,7 +8,7 @@ export async function run(): Promise<void> {
   try {
     // Read inputs
     const username = core.getInput('username', { required: true })
-    const password = core.getInput('password', { required: true })
+    const pwd = core.getInput('password', { required: true })
     const serviceId = core.getInput('service-id')
     const serviceApiId = core.getInput('service-api-id')
     const productTierId = core.getInput('product-tier-id')
@@ -28,7 +28,7 @@ export async function run(): Promise<void> {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: username,
-          password: password,
+          password: pwd
         })
       }
     )
