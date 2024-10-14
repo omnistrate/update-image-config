@@ -1,3 +1,7 @@
+# Deprecated
+
+Deprecated please refer to: https://ctl.omnistrate.cloud/integrating/
+
 # GitHub Action to integrate your CI with Omnistrate
 
 [![GitHub Super-Linter](https://github.com/omnistrate/update-image-config/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
